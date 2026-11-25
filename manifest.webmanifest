@@ -1,0 +1,17 @@
+{
+  "name": "徽州百工校准档案 · 我的实践手册",
+  "short_name": "百工校准档案",
+  "description": "一门手艺·两种说法 —— 海亮实验中学西藏班徽州实践教育电子手册",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f1e4",
+  "theme_color": "#a4362a",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
