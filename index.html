@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="百工校准档案">
-<meta name="description" content="海亮实验中学西藏班徽州实践教育电子手册：一门手艺·两种说法，我的徽州百工校准档案">
+<meta name="description" content="海亮实验中学西藏班徽州实践教育电子手册：寻脉徽州·匠心报国，我的徽州百工校准档案">
 <title>一门手艺·两种说法 | 我的徽州百工校准档案</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -88,6 +88,9 @@ html,body{height:100%}
 .inkCard{position:relative;overflow:hidden}
 .inkCard::after{content:"";position:absolute;right:-26px;top:-26px;width:120px;height:120px;border-radius:50%;
   background:radial-gradient(circle,rgba(35,59,57,.10) 0,transparent 68%);pointer-events:none}
+.aspCard{border-left:4px solid var(--jade)}
+.aspLead{font-size:12px;line-height:1.85;color:var(--ink2);background:var(--paper2);border-radius:9px;padding:9px 11px;margin-bottom:6px}
+.aspLead b{color:var(--jade)}
 .driveCard{border-left:4px solid var(--red);background:
   radial-gradient(circle at 92% 8%,rgba(47,111,94,.07) 0,transparent 40%),#ffffff}
 .dcLbl{font-size:11px;letter-spacing:2px;color:var(--red);font-weight:700;margin-bottom:8px;
@@ -95,6 +98,8 @@ html,body{height:100%}
 .dcQ{font-size:13.5px;line-height:1.95;color:var(--ink)}
 .dcQ b{color:var(--red);font-weight:700}
 .dcDiv{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:14px 0}
+.stageLadder{display:flex;gap:5px;margin-top:11px;flex-wrap:wrap}
+.stageLadder span{font-size:10.5px;color:var(--jade2);background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
 .dcOut{font-size:13px;line-height:1.8;color:var(--ink)}
 .dcOut b{color:var(--red);font-size:16px;font-family:KaiTi,STKaiti,serif}
 .dcSegs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
@@ -102,6 +107,16 @@ html,body{height:100%}
   border-radius:999px;padding:4px 9px}
 .dcFoot{font-size:10.5px;color:var(--ink2);line-height:1.8;margin-top:8px}
 /* ── 水墨风 · 知识卡配图 ── */
+.workCard{border-left:4px solid var(--jade)}
+.workGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.workItem{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff;text-align:center}
+.workItem img{width:100%;height:120px;object-fit:cover;display:block;background:var(--paper2)}
+.workItem .wl{font-size:11px;color:var(--jade2);padding:6px 4px;font-weight:700}
+.workItem.empty{display:flex;align-items:center;justify-content:center;min-height:160px;color:var(--ink2);font-size:11px;line-height:1.6;padding:8px}
+.aspCompare{font-size:11.5px;line-height:1.8;color:var(--ink2);background:var(--paper2);border-radius:9px;padding:9px 11px;margin-bottom:8px}
+.aspCompare b{color:var(--jade)}
+.workShot{margin-top:9px}
+.workShot img{width:100%;max-width:260px;max-height:240px;object-fit:contain;border-radius:10px;border:1px solid var(--line);display:block;margin:0 auto}
 .knowWrap{display:flex;gap:12px;align-items:stretch;margin-top:12px}
 .knowArt{flex:none;width:150px;min-height:150px;border-radius:12px;overflow:hidden;
   background:#eee6d3;border:1px solid var(--line);position:relative}
@@ -350,18 +365,22 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
                         <span class="bl">海亮实验中学 · 西藏班实践教育</span>
         <h1>一门手艺 · 两种说法</h1>
         <div class="sub">我的徽州百工校准档案 · 3 天 2 晚</div>
-        <div class="sub2">AI 会讲错什么 · 现场怎么改对 · 用家乡话重讲一遍</div>
+        <div class="sub2">寻脉徽州 · 匠心报国　|　文化熏陶 → 认同自信 → 立志报国</div>
         <div id="sealRow"></div>
       </div>
       <div class="pad">
         <div class="card inkCard driveCard">
+          <div class="dcLbl">主题 · 寻脉徽州 · 匠心报国</div>
+          <div class="dcQ">从文化熏陶到认同自信，再到立志报国——在行走中读懂传统，在动手中体会匠心，在感悟中立志报国。</div>
+          <div class="stageLadder"><span>① 知徽州 · 寻脉</span><span>② 爱徽州 · 匠心</span><span>③ 兴中华 · 立心</span></div>
+          <div class="dcDiv"></div>
           <div class="dcLbl">核心驱动问题</div>
           <div class="dcQ">如果让 AI 替你把徽州的一门手艺讲给高原的亲友听，它<b>可能会讲错什么</b>？请你把它<b>改对</b>，再用<b>家乡人听得懂的话</b>讲出来。</div>
           <div class="dcDiv"></div>
           <div class="dcLbl">小组成果形式</div>
           <div class="dcOut">一支 <b>60—90 秒</b>讲解短片《一门手艺·两种说法》</div>
           <div class="dcSegs"><span>① 错 · 亮出 AI 原话</span><span>② 真 · 现场证据反证</span><span>③ 讲 · 家乡话重讲</span></div>
-          <div class="dcFoot">片尾写出你的采集点位 · 星学伴平台展出 · 带回给高原的家人亲友看</div>
+          <div class="dcFoot">作品照片 + 三段式短片 + 我的立志卡 · 星学伴平台展出 · 带回给高原的家人亲友看</div>
         </div>
         <div class="secTit">行前视频<em>出发前先看一看</em></div>
         <div class="card">
@@ -385,7 +404,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
         <div class="secTit">三天行程<em>点开看每天安排</em></div>
         <div id="itin"></div>
-        <div class="itHint">带「手艺」标签的站点，点一下就能直接跳到记录页</div>
+        <div class="itHint">三天对应三阶段：寻脉·文化熏陶 → 匠心·传承实践 → 立心·立志报国。带「手艺」标签的站点可点开记录页。</div>
         <button class="btn btn-ghost sm blk" id="btnExportPDFHome" style="margin-top:10px">导出完整成果 PDF（含全部照片）</button>
 
         <div class="note">· 全程无需网络 · 进度只保存在本机浏览器 · 不上传、不收集 ·<br>出发前打开一次，行中离线也能完整使用</div>
@@ -414,6 +433,18 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <div class="fld"><select id="inCraft2"><option value="">认领一门手艺</option></select></div>
           <div class="lbl"><b>我选择这门手艺的原因</b></div>
           <textarea class="txArea" id="inMsg" maxlength="80" placeholder="例如：想弄明白一锭墨凭什么值一两金，讲给高原的亲友听"></textarea>
+        </div>
+
+        <div class="secTit">我的立志 · 出发前先立一个小目标<em>与成果页呼应</em></div>
+        <div class="card inkCard aspCard">
+          <div class="aspLead">学校主题：<b>寻脉徽州 · 匠心报国</b>。出发前先写下你为什么来、想带回什么——结营时成果页会请你对照这一天，看自己真的走了多远。</div>
+          <div class="lbl"><b>我想学会的一样本领</b></div>
+          <textarea class="txArea" id="inAspWant" maxlength="80" placeholder="例如：我想学会把一门手艺讲清楚，让远方的人也听得懂"></textarea>
+          <div class="lbl"><b>为什么想学它</b></div>
+          <textarea class="txArea" id="inAspWhy" maxlength="100" placeholder="例如：因为我想把家乡的文化讲给高原的亲友听"></textarea>
+          <div class="lbl"><b>我给自己的小目标</b></div>
+          <textarea class="txArea" id="inAspGoal" maxlength="80" placeholder="例如：现场至少记下 3 个 AI 没讲到的细节"></textarea>
+          <div class="hintLine" style="text-align:left;margin-top:6px">这三句会在成果页自动带出，帮你写自己的立志卡——不用现在写得多好，出发前的期待本身就珍贵。</div>
         </div>
 
         <div class="secTit">AI 讲解稿提示词示例<em>复制一个去用</em></div>
@@ -482,8 +513,32 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-result">
       <div class="pad">
-        <div class="card dark"><div class="dh1">成果 · 三段式讲解短片</div>
-          <div class="dh2">《一门手艺·两种说法》60—90 秒：第①段亮出 AI 原话与可疑之处，第②段用现场证据反证，第③段用家乡话重讲。片尾写出你的采集点位。</div></div>
+        <div class="card dark"><div class="dh1">成果集 · 寻脉徽州 · 匠心报国</div>
+          <div class="dh2">你的成果由四部分组成：五手艺作品墙 + 三段式讲解短片 + 研学感悟 + 我的立志卡。从"我看见的手艺"到"我立下的志向"，把三天的成长排成一份完整成果。</div></div>
+
+        <div class="secTit">① 手艺作品墙<em>五天手艺，我的作品</em></div>
+        <div class="card inkCard"><div class="workGrid" id="workGrid"></div>
+          <div class="hintLine" style="text-align:left;margin-top:8px">作品照片来自"手艺"页每个手艺的上传。没有上传的会显示提示，不影响其他成果。</div></div>
+
+        <div class="secTit">② 研学感悟<em>最打动我的那一刻</em></div>
+        <div class="card">
+          <div class="lbl" style="margin-top:0"><b>三天里最打动我的一件作品 / 一个匠人故事</b></div>
+          <textarea class="txArea" id="inReflect" maxlength="300" placeholder="例如：墨厂师傅说描金急不得，一笔是一笔——我想到我练琴也总想快…"></textarea>
+          <div class="hintLine" style="text-align:left;margin-top:4px">写具体一点：什么作品、谁、说了什么、为什么打动你。这是学校成果展评要用的感悟文章。</div>
+        </div>
+
+        <div class="secTit">③ 我的立志卡 · 前后呼应<em>对照行前的自己</em></div>
+        <div class="card inkCard aspCard">
+          <div class="aspLead">回看出发前你写下的本领与期待，再看看三天后的自己——把这份成长写成一张立志卡。学校闭营仪式上会用它做"成才报国"的立志表达。</div>
+          <div class="aspCompare" id="aspCompare"></div>
+          <div class="lbl"><b>此刻我想说的话（改对后的自己）</b></div>
+          <textarea class="txArea" id="inAspCard" maxlength="200" placeholder="例如：我想把徽墨描金讲给高原亲友听，也把这份耐心带回学习里"></textarea>
+          <div class="lbl"><b>回校后我要做的一件事</b></div>
+          <textarea class="txArea" id="inAspPlan" maxlength="120" placeholder="例如：在班里做一次徽州手艺分享会，教同学用藏语和汉语各讲一遍"></textarea>
+          <button class="btn btn-jade blk" id="btnAspAI" style="margin-top:10px">✦ 让 AI 帮我润色立志卡</button>
+          <div class="hintLine" style="text-align:left;margin-top:6px">点按钮复制提示词给 AI，把生成的话挑好的填进上面两格。AI 只是帮你把话说顺，志向必须是你自己的。</div>
+          <div class="promptBox" id="aspPromptBox" style="margin-top:10px"></div>
+        </div>
 
         <div class="secTit">三段式分镜脚本</div>
         <div class="segBox s1"><div class="sh"><div class="sn">①</div><div class="st2">错 · AI 原话与可疑之处</div><div class="sd">约 15 秒</div></div>
@@ -548,7 +603,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
         <div class="secTit">导师评语</div>
         <div class="card"><textarea class="txArea" id="inTutor" placeholder="导师评语（由老师填写）"></textarea></div>
 
-        <div class="secTit">量规自评<em>证据30 · 校准25 · 讲述25 · 完成度20</em></div>
+        <div class="secTit">量规自评<em>学校五维 · 文化认知 / 实践参与 / 匠心态度 / 家国情怀 / 团队协作</em></div>
         <div class="card"><div id="scoreList"></div>
           <div class="lbl" style="margin-top:12px"><b>创新加分</b>　找到 AI"说得对但没说透"的地方，或提出新的对照角度</div>
           <textarea class="txArea" id="inInnov" placeholder="写 1 句（可选）"></textarea>
@@ -739,16 +794,17 @@ var BOUNDARY=[
  '感悟、结论、打分必须是我自己的话，老师要看"我为什么这么想"'
 ];
 var SCORE_DIMS=[
- {k:'ev',n:'证据（30%）',d:'片中出现只有到现场才获得的细节'},
- {k:'ca',n:'校准（25%）',d:'准确指出 AI 的具体错误（史实/工序/术语）并给出改法'},
- {k:'na',n:'讲述（25%）',d:'用高原孩子听得懂的话讲解，含藏语关键词，不作先进/落后比较'},
- {k:'co',n:'完成度（20%）',d:'60—90 秒，三段齐全，字幕清晰、声音可听'}
+ {k:'cu',n:'文化认知',d:'能说出徽州代表遗产与手艺的价值（看校准对照、汉藏卡）'},
+ {k:'pa',n:'实践参与',d:'完成描金、鱼灯、竹雕、烧饼等体验并留下作品照片'},
+ {k:'cr',n:'匠心态度',d:'现场细节具体、匠人提问有思考，尊重技艺与劳动'},
+ {k:'ho',n:'家国情怀',d:'立志卡写出文化认同与回校后的行动打算'},
+ {k:'tm',n:'团队协作',d:'小组分工配合、完成造园与成果汇报'}
 ];
 var ERR_TYPES=['史实','工序','术语','说得对但没说透'];
 var ANCHORS_LABEL=['我认领的手艺','AI 讲错的地方','现场最有力的证据','这门手艺连着的一方水土','我选择这门手艺的原因'] ;
 
 /* ============ 状态 ============ */
-function blankSpot(){return {digit:'',action:'',quote:'',compare:'',bonus:'',photo:'',done:false};}
+function blankSpot(){return {digit:'',action:'',quote:'',compare:'',bonus:'',photo:'',work:'',ask:'',done:false};}
 function blankCalib(){return {ai:'',fact:'',why:'',err:''};}
 function blankHanRows(){return HAN_LABELS.map(function(){return ['',''];});}
 function blankState(){return {
@@ -762,8 +818,9 @@ function blankState(){return {
  hanRows:blankHanRows(),tibCraft:'',tibWord:'',oral:'',mutu:false,
  boundary:BOUNDARY.map(function(){return false;}),
  seg1:'',seg2:'',seg3:'',evidence:'',duration:'',cover:'',link:'',made:false,
+ aspWant:'',aspWhy:'',aspGoal:'',aspPlan:'',aspCard:'',reflect:'',
  peer:{a1:'',b1:'',a2:'',b2:''},tutor:'',family:'',innov:'',gain1:'',gain2:'',
- score:{ev:0,ca:0,na:0,co:0}
+ score:{cu:0,pa:0,cr:0,ho:0,tm:0}
 };}
 var ST=blankState();
 try{
@@ -794,8 +851,9 @@ function norm(){
   var n={prep:PREP.length,tools:TOOLS.length,items:ITEMS.length,rules:RULES.length,questions:PROMPTS.length,boundary:BOUNDARY.length}[k];
   while(ST[k].length<n)ST[k].push(false);ST[k]=ST[k].slice(0,n);});
  ST.peer=Object.assign({a1:'',b1:'',a2:'',b2:''},ST.peer||{});
- ST.score=Object.assign({ev:0,ca:0,na:0,co:0},ST.score||{});
- ST.spots.forEach(function(o){if(typeof o.photo!=='string')o.photo='';if(typeof o.bonus!=='string')o.bonus='';});
+ ST.score=Object.assign({cu:0,pa:0,cr:0,ho:0,tm:0},ST.score||{});
+ ST.spots.forEach(function(o){['photo','bonus','work','ask'].forEach(function(k){if(typeof o[k]!=='string')o[k]='';});});
+ ['aspWant','aspWhy','aspGoal','aspPlan','aspCard'].forEach(function(k){if(typeof ST[k]!=='string')ST[k]='';});
 }
 norm();
 
@@ -857,8 +915,9 @@ function pct(){
  var sp=spotsDone()/spotsTotal();
  var ca=(calibDone()/3 + (hanDone()?1:0) + ST.boundary.filter(Boolean).length/BOUNDARY.length)/3;
  var res=(storyDone()?1:0)*.6+(ST.cover?0.25:0)+((ST.link||'').trim()?0.15:0);
+ var asp=((ST.aspWant||'').trim()&&(ST.aspGoal||'').trim()?0.4:0)+((ST.aspCard||'').trim()?0.4:0)+((ST.aspPlan||'').trim()?0.2:0);
  var rev=((ST.peer.a1||ST.peer.b1)?1:0)+((ST.tutor||ST.family)?1:0)+((ST.gain1&&ST.gain2)?1:0);
- rev=rev/3;
+ rev=(rev+asp)/4;
  var f=[me,prep,rules,sp,ca,res,rev];
  var s=0;f.forEach(function(x){s+=x;});return Math.min(100,Math.round(s/f.length*100));
 }
@@ -941,6 +1000,9 @@ if(fieldSel2)fieldSel2.addEventListener('change',function(){ST.craft=this.value;
 function renderPrep(){
  if(fieldSel2)fieldSel2.value=ST.craft;
  $('inMsg').value=ST.msg;$('inAiText').value=ST.aiText;
+ if($('inAspWant'))$('inAspWant').value=ST.aspWant||'';
+ if($('inAspWhy'))$('inAspWhy').value=ST.aspWhy||'';
+ if($('inAspGoal'))$('inAspGoal').value=ST.aspGoal||'';
  var qh='';PROMPTS.forEach(function(p,i){
   qh+='<div class="promptCard"><div class="pcH"><b>'+esc(p.n)+'</b><span>'+esc(p.d)+'</span></div>'+
    '<div class="pcBody">'+esc(p.t)+'</div>'+
@@ -1014,6 +1076,13 @@ function renderTrip(){
   : (mi<0 ? '<div class="mineBar">先在首页认领一门手艺；这一门可先了解，暂不计入完成度</div>'
           : '<div class="mineBar">这一门不是你认领的 · 可浏览了解，不计入完成度（你的是 '+esc(FIELDS[mi].short)+' ★）</div>');
  var h=mineBar;
+ h+='<div class="card inkCard workCard"><div class="sh"><div class="sn" style="background:var(--jade)">★</div><div class="st2">我的作品 · 上传这张手艺的照片</div></div>'+
+  '<div class="hintLine" style="text-align:left;margin:2px 0 8px">把你亲手做的作品拍一张（描金墨、竹雕、鱼灯、烧饼、造园一角都行），它会进成果页的"手艺作品墙"。</div>'+
+  '<div class="uploadBox" data-workphoto="'+curField+'" id="workUpBox"><svg viewBox="0 0 24 24"><path d="M12 16V6M8 10l4-4 4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>点此上传作品照片</div>'+
+  (o.work?'<div class="workShot"><img src="'+o.work+'" alt="我的作品"><button class="btn btn-ghost sm blk" data-delwork="'+curField+'" style="margin-top:6px">换一张</button></div>':'')+
+  '<div class="lbl" style="margin-top:12px"><b>匠人面对面 · 我最想问的一句</b></div>'+
+  '<div class="hintLine" style="text-align:left;margin:0 0 6px">技艺是怎么练成的？传承靠什么坚持？怎样才算出色？——把你想问匠人的写下来。</div>'+
+  '<textarea class="txArea" data-f="'+curField+'" data-k="ask" placeholder="例如：描金一笔错了能改吗？师傅练了多少年？">'+esc(o.ask||'')+'</textarea></div>';
  h+='<div class="card"><div class="missHead" style="margin-bottom:10px">'+
   '<div style="width:50px;height:50px;border-radius:14px;flex:none;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#35806c,#245648);color:#f0f7f3">'+BADGE[F.id]+'</div>'+
   '<div style="flex:1;min-width:0"><b style="font-size:15px;color:var(--ink)">'+esc(F.name)+'</b>'+
@@ -1052,6 +1121,7 @@ function renderTrip(){
  $('main').scrollTop=0;
  bindFieldInputs();
  bindFieldPhoto(curField);
+ bindWorkPhoto(curField);
 }
 function saveField(i){
  var wasEdit=(fieldEdit===i);if(wasEdit)fieldEdit=-1;
@@ -1081,6 +1151,15 @@ function bindFieldPhoto(i){
   fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;if(f.size>12*1024*1024){toast('照片太大，请压缩到 12MB 以内');return;}
    compressImage(f,820,function(url){if(!url){toast('读取失败，请重试');return;}ST.spots[i].photo=url;save();renderTrip();toast('照片已存入，导出 PDF 会自动带上');});};fi.click();};
  $('btnDelFieldPhoto').onclick=function(){ST.spots[i].photo='';save();renderTrip();toast('照片已移除');};
+}
+function bindWorkPhoto(i){
+ var box=$('workUpBox');if(!box)return;
+ box.onclick=function(){var fi=document.createElement('input');fi.type='file';fi.accept='image/*';
+  fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;if(f.size>12*1024*1024){toast('照片太大，请压缩到 12MB 以内');return;}
+   compressImage(f,900,function(url){if(!url){toast('读取失败，请重试');return;}ST.spots[i].work=url;save();renderTrip();toast('作品照片已存入，会进成果页作品墙');});};fi.click();};
+ document.querySelectorAll('#fieldBody [data-delwork]').forEach(function(b){
+  if(b.dataset.bound)return;b.dataset.bound='1';
+  b.onclick=function(){ST.spots[+b.dataset.delwork].work='';save();renderTrip();toast('作品照片已移除');};});
 }
 
 /* ============ 校准 ============ */
@@ -1137,9 +1216,42 @@ function resultPrompt(){
  var h=ST.hanRows.filter(function(r){return r[0].trim()||r[1].trim();}).map(function(r,i){return HAN_LABELS[i]+'：徽州'+(r[0]||'—')+' / 藏族'+(r[1]||'—');}).join('\n');
  return '你是青少年实践教育导师。请把我下面的三段式脚本，润色成一支 60—90 秒讲解短片的口播稿，要求：① 三段结构保留——先亮出 AI 原话与可疑之处，再用现场证据反证，最后用高原孩子听得懂的话重讲；② 用初中生能懂的话，不写空话；③ 不要编造我没有提供的史实或数据，缺失处标注「需补充」；④ 不使用"先进/落后"一类比较；⑤ 结尾给一句给高原亲友的话。\n\n我认领的手艺：'+craft+'\n藏族对应手艺：'+(ST.tibCraft||'（未填）')+'，藏语关键词：'+(ST.tibWord||'（未填）')+'\n\n校准对照：\n'+(c||'（未填）')+'\n\n汉藏对照卡：\n'+(h||'（未填）')+'\n\n我的三句脚本：\n① '+(ST.seg1||'（未填）')+'\n② '+(ST.seg2||'（未填）')+'\n③ '+(ST.seg3||'（未填）')+'\n\n我选择这门手艺的原因：'+(ST.msg||'（未填）');
 }
+/* 五手艺作品墙 */
+function renderWorkGrid(){
+ var g=$('workGrid');if(!g)return;
+ var h='';FIELDS.forEach(function(F,i){
+  var w=(ST.spots[i]||{}).work||'';
+  h+= w ? ('<div class="workItem"><img src="'+w+'" alt="'+esc(F.short)+'作品"><div class="wl">'+esc(F.short)+'</div></div>')
+        : ('<div class="workItem empty">'+esc(F.short)+'<br>还没传作品</div>');
+ });
+ g.innerHTML=h;
+}
+/* 行前立志 vs 成果立志 对照 */
+function renderAspCompare(){
+ var el=$('aspCompare');if(!el)return;
+ var has=(ST.aspWant||ST.aspWhy||ST.aspGoal);
+ if(!has){el.innerHTML='你出发前还没写下立志——可以回到"行前"页补一句，再回来对照。';return;}
+ el.innerHTML='<b>出发前的我：</b>'+(ST.aspWant?esc(ST.aspWant):'—')+
+  (ST.aspWhy?'　·　为什么：'+esc(ST.aspWhy):'')+
+  (ST.aspGoal?'<br><b>当时的小目标：</b>'+esc(ST.aspGoal):'');
+}
+/* AI 润色立志卡提示词 */
+function aspPrompt(){
+ return '你是青少年实践教育导师。请根据我下面的行前立志与三天实践记录，帮我写一张"立志卡"的口播稿（约80字），要求：① 先说出我出发前想学的本领，再说三天后我真正懂得了什么；② 把徽州手艺的匠心与我的成长联系起来，落到"勤学本领、传承文化、报效祖国"；③ 用初中生能懂的话，不要空话套话，不要用"先进/落后"比较；④ 结尾给出回校后要做的一件具体小事。不要编造我没提供的经历。\n\n认领手艺：'+(ST.craft||'未填')+
+  '\n行前想学的本领：'+(ST.aspWant||'未填')+'\n为什么想学：'+(ST.aspWhy||'未填')+'\n行前小目标：'+(ST.aspGoal||'未填')+
+  '\n现场三个细节：'+FIELDS.map(function(F,i){var o=ST.spots[i];return spotDone(i)?(F.short+'：'+(o.digit||'')+'；'+(o.action||'')+'；'+(o.quote||'')):'';}).filter(Boolean).join('　')+
+  '\n我最想问匠人的：'+(ST.spots.map(function(o){return o.ask||'';}).filter(Boolean).join('；')||'未填')+
+  '\n最打动我的：'+(ST.reflect||'未填');
+}
+
 function renderResult(){
  $('inSeg1').value=ST.seg1;$('inSeg2').value=ST.seg2;$('inSeg3').value=ST.seg3;
  $('inLink').value=ST.link;
+ if($('inReflect'))$('inReflect').value=ST.reflect||'';
+ if($('inAspCard'))$('inAspCard').value=ST.aspCard||'';
+ if($('inAspPlan'))$('inAspPlan').value=ST.aspPlan||'';
+ renderWorkGrid();renderAspCompare();
+ if($('aspPromptBox'))$('aspPromptBox').innerHTML='<span class="ph">提示词已代入你的行前立志与现场记录，点上方按钮复制</span>'+esc(aspPrompt());
  $('promptBox').innerHTML='<span class="ph">提示词已代入你的内容，点上方复制</span>'+esc(resultPrompt());
  $('cardResult').style.display=ST.made?'block':'none';
  if(ST.made)$('cardPrev').src=drawCard();
@@ -1160,14 +1272,14 @@ function renderReview(){
  $('scoreList').innerHTML=h;
  document.querySelectorAll('#scoreList .star').forEach(function(el){if(el.dataset.bound)return;el.dataset.bound='1';
   el.addEventListener('click',function(){var k=el.parentNode.dataset.k,s=+el.dataset.s;ST.score[k]=(ST.score[k]===s?0:s);save();renderReview();});});
- $('quoteEnd').innerHTML='<b>结语 · 一门手艺，两种说法</b><br>三天里，你先听 AI 讲了一遍徽州，再用脚步把它一句句改对：宏村的水、墨厂的金、古城的灯、工坊的刀。最后你用家乡的话，把它重新讲给高原的亲人听。改对的从来不只是一句话——是"一方水土养一方手艺"，也是汉藏造物里相通的那份耐心。愿你在往后的日子里，敢对顺口的说法多问一句"真的吗"，也愿意把自己的话，讲给远方的人听。';
+ $('quoteEnd').innerHTML='<b>结语 · 寻脉徽州，匠心报国</b><br>三天里，你先听 AI 讲了一遍徽州，再用脚步把它一句句改对：宏村的水、墨厂的金、古城的灯、工坊的刀。最后你用家乡的话，把它重新讲给高原的亲人听，并写下自己的立志卡。读懂一方水土，敬重一门技艺，立下一个志向——这就是"寻脉徽州，匠心报国"。愿你带着这份文化自信，勤学本领、传承文化，将来在各自的岗位上报效祖国。';
 }
 
 /* ============ 事件绑定（行前与成果静态输入） ============ */
-['inMsg','inAiText'].forEach(function(id){$(id).addEventListener('input',function(){
- var k={inMsg:'msg',inAiText:'aiText'}[id];ST[k]=this.value;save();});});
-['inSeg1','inSeg2','inSeg3','inLink'].forEach(function(id){$(id).addEventListener('input',function(){
- var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link'}[id];ST[k]=this.value;save();});});
+['inMsg','inAiText','inAspWant','inAspWhy','inAspGoal'].forEach(function(id){$(id).addEventListener('input',function(){
+ var k={inMsg:'msg',inAiText:'aiText',inAspWant:'aspWant',inAspWhy:'aspWhy',inAspGoal:'aspGoal'}[id];ST[k]=this.value;save();});});
+['inSeg1','inSeg2','inSeg3','inLink','inReflect','inAspCard','inAspPlan'].forEach(function(id){$(id).addEventListener('input',function(){
+ var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link',inReflect:'reflect',inAspCard:'aspCard',inAspPlan:'aspPlan'}[id];ST[k]=this.value;save();});});
 ['inTibCraft','inTibWord','inOral'].forEach(function(id){$(id).addEventListener('input',function(){
  var k={inTibCraft:'tibCraft',inTibWord:'tibWord',inOral:'oral'}[id];ST[k]=this.value;save();});});
 $('mutuRow').addEventListener('click',function(){ST.mutu=!ST.mutu;save();$('mutuRow').classList.toggle('on',!!ST.mutu);});
@@ -1182,6 +1294,7 @@ $('btnSaveMe').addEventListener('click',function(){
  toast('你好，'+ST.name+'（'+(ST.cls||'同学')+'）。档案已就位。');
 });
 $('btnCopyPrompt').addEventListener('click',function(){copyText(resultPrompt(),function(){toast('提示词已复制，去粘给 AI 吧');});});
+$('btnAspAI')&&$('btnAspAI').addEventListener('click',function(){copyText(aspPrompt(),function(){toast('立志卡提示词已复制，粘给 AI 帮你把话说顺');});});
 $('btnMake').addEventListener('click',function(){
  if(!storyDone()){toast('先把三段式脚本写完再生成档案图');return;}
  ST.made=true;save();$('cardPrev').src=drawCard();$('cardResult').style.display='block';
@@ -1336,7 +1449,8 @@ function PDFDoc(){
   cc.textAlign='left';cc.fillStyle='#245648';cc.font='700 22px '+KF;cc.fillText('档案概览',PDF_L,856);
   cc.font='17px '+PF;cc.fillStyle='#37524a';
   cc.fillText('完成度 '+pct()+'%　·　手艺采证 '+spotsDone()+'/'+FIELDS.length+'　·　校准 '+calibDone()+'/3',PDF_L,892);
-  cc.fillText('AI 原话截图 '+(ST.aiShot?'已存':'待存')+'　·　三段脚本 '+(storyDone()?'已成':'待写')+'　·　档案图 '+(ST.made?'已生成':'待生成'),PDF_L,922);
+  if((ST.aspCard||'').trim()){cc.fillStyle='#2f6f5e';cc.font='700 19px '+KF;cc.fillText('立志 · '+(ST.aspCard||'').slice(0,22),PDF_L,900);}
+ cc.fillText('AI 原话截图 '+(ST.aiShot?'已存':'待存')+'　·　三段脚本 '+(storyDone()?'已成':'待写')+'　·　档案图 '+(ST.made?'已生成':'待生成'),PDF_L,922);
   cc.fillStyle='#245648';cc.font='700 22px '+KF;cc.fillText('本册目录',PDF_L,982);
   var toc=['一 · 行前：AI 原话、截图与待核清单','二 · 五手艺现场记录（含照片）','三 · 校准对照表与汉藏对照卡','四 · 三段式脚本、封面与评价收获'];
   cc.font='17px '+PF;cc.fillStyle='#37524a';toc.forEach(function(t,i){cc.fillText(t,PDF_L+14,1024+i*30);});
@@ -1366,13 +1480,18 @@ function pdfFromJPEGs(jpegs){var parts=[],pos=0,offs=[];
 function pdfCollect(cb){
  var srcs=[];srcs.push(ST.aiShot||'');
  FIELDS.forEach(function(F,i){srcs.push(ST.spots[i].photo||'');});
+ FIELDS.forEach(function(F,i){srcs.push(ST.spots[i].work||'');});
  srcs.push(ST.cover||'');srcs.push(ST.made?drawCard():'');
- pdfLoadAll(srcs,function(ims){cb({ai:ims[0],spot:ims.slice(1,1+FIELDS.length),cover:ims[1+FIELDS.length],card:ims[2+FIELDS.length]});});}
+ var W=FIELDS.length;
+ pdfLoadAll(srcs,function(ims){cb({ai:ims[0],spot:ims.slice(1,1+W),work:ims.slice(1+W,1+2*W),cover:ims[1+2*W],card:ims[2+2*W]});});}
+function miSafe(mw,i){return mw>=0&&i!==mw;}
 function pdfMakeDoc(a){
  var d=PDFDoc();d.cover();
  d.start('一 · 行前立靶','认领手艺 · AI 原话与待核清单');
  d.block('认领的手艺 / 组别',(ST.craft||'（未填）')+(ST.grp?' · '+ST.grp:''));
- d.block('想讲给高原亲友的一句',ST.msg);
+ d.block('我选择这门手艺的原因',ST.msg);
+ d.block('行前立志 · 想学的本领',ST.aspWant);
+ d.block('行前立志 · 为什么 / 小目标',(ST.aspWhy||'（未填）')+'　｜　'+(ST.aspGoal||'（未填）'));
  d.block('AI 讲解原话',ST.aiText);
  if(a.ai)d.img(a.ai,'AI 讲解截图（原样保存）',900,true);else d.block('AI 讲解截图','（未上传）');
  ST.todo.forEach(function(t,i){d.block('待核清单 '+(i+1),t);});
@@ -1384,7 +1503,9 @@ function pdfMakeDoc(a){
   var TD=TASK_DEF[F.id];
   d.block(TD[0].t,o.digit);d.block(TD[1].t,o.action);d.block(TD[2].t,o.quote);
   d.block('核对 AI 说法',o.compare);
+  if(String(o.ask||'').trim())d.block('匠人面对面 · 我最想问的一句',o.ask);
   if(String(o.bonus||'').trim())d.block('加分素材 · 现场听到的一句',o.bonus);
+  if(a.work[i])d.img(a.work[i],'我的作品 · '+F.short,900,true);
   if(a.spot[i])d.img(a.spot[i],'现场留影 · '+F.short,900,true);
   else d.block('现场留影','（这一站还没有上传照片）');});
  d.start('三 · 校准与汉藏对照','把 AI 讲错的改对，再换成家乡话');
@@ -1393,10 +1514,17 @@ function pdfMakeDoc(a){
  d.block('藏族对应手艺 / 藏语关键词',(ST.tibCraft||'（未填）')+' / '+(ST.tibWord||'（未填）'));
  HAN_LABELS.forEach(function(lb,i){d.block('汉藏对照 · '+lb,'徽州：'+(ST.hanRows[i][0]||'（未填）')+'　｜　藏族：'+(ST.hanRows[i][1]||'（未填）'),{font:'17px '+PF,lh:27});});
  d.block('口播一句',ST.oral);d.block('母语与文化审校',ST.mutu?'藏族同学已确认：讲得通，无先进/落后比较':'（尚未审校）');
- d.start('四 · 三段式脚本与评价','60—90 秒讲解短片《一门手艺·两种说法》');
+ d.start('四 · 成果集','作品墙 · 三段式短片 · 感悟 · 立志卡');
+ var mw=myFieldIdx();FIELDS.forEach(function(F,i){if(miSafe(mw,i))return;if(a.work[i])d.img(a.work[i],'手艺作品 · '+F.short,700,true);});
+ d.block('研学感悟 · 最打动我的',ST.reflect);
  d.block('① 错 · AI 原话与可疑之处',ST.seg1);d.block('② 真 · 现场证据反证',ST.seg2);d.block('③ 讲 · 家乡话重讲',ST.seg3);
  if(a.cover)d.img(a.cover,'短片封面截图',900,true);else d.block('短片封面','（未上传）');
  d.block('平台展出链接',ST.link||'（未填）');
+ d.start('我的立志卡 · 寻脉徽州 匠心报国','从行前的自己，到今天的自己');
+ d.block('出发前 · 想学的本领',ST.aspWant);
+ d.block('出发前 · 小目标',ST.aspGoal);
+ d.block('此刻我想说的话',ST.aspCard);
+ d.block('回校后要做的一件事',ST.aspPlan);
  d.start('评价与收获','让这段旅程被看见');
  d.block('同伴一 · 触动 / 建议',(ST.peer.a1||'（未填）')+'　｜　'+(ST.peer.b1||''));
  d.block('同伴二 · 触动 / 建议',(ST.peer.a2||'（未填）')+'　｜　'+(ST.peer.b2||''));
@@ -1404,7 +1532,7 @@ function pdfMakeDoc(a){
  d.block('创新加分',ST.innov);
  SCORE_DIMS.forEach(function(x){d.block('量规 · '+x.n,((ST.score[x.k]||0)+' / 5 星'),{font:'17px '+PF,lh:27});});
  d.block('对"共同体"的新理解',ST.gain1);d.block('下一阶段坚持做好的一件事',ST.gain2);
- d.gap(18);d.block('结语 · 一门手艺，两种说法','改对的，从来不只是一句话',{font:'20px '+PF,lh:32});
+ d.gap(18);d.block('结语 · 寻脉徽州，匠心报国','读懂一方水土，敬重一门技艺，立下一个志向',{font:'20px '+PF,lh:32});
  d.block('','三天里，你先听 AI 讲了一遍徽州，再用脚步把它一句句改对；最后用家乡的话，把它重新讲给高原的亲人听。',{font:'20px '+PF,lh:34});
  d.block('档案完成度',pct()+'%　·　手艺采证 '+spotsDone()+'/'+FIELDS.length+'　·　校准 '+calibDone()+'/3');
  return d;}
