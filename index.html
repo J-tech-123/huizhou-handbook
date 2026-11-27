@@ -104,6 +104,14 @@ html,body{height:100%}
 .sgItem{border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#fff}
 .sgItem img{width:100%;height:88px;object-fit:cover;display:block}
 .sgItem span{display:block;font-size:10px;text-align:center;color:var(--jade2);padding:5px 2px;font-weight:700}
+.toolFold{border:1px solid var(--line);border-radius:13px;background:var(--paper2);overflow:hidden;margin-bottom:12px}
+.toolFold summary{list-style:none;cursor:pointer;padding:13px 15px;font-size:12.5px;font-weight:700;color:var(--jade2);
+  display:flex;flex-direction:column;gap:3px;position:relative}
+.toolFold summary::-webkit-details-marker{display:none}
+.toolFold summary span{font-size:10.5px;font-weight:400;color:var(--ink2)}
+.toolFold summary::after{content:'＋';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:var(--jade2);font-size:16px}
+.toolFold[open] summary::after{content:'－'}
+.foldBody{padding:0 12px 12px}
 .hintCard{padding:12px 14px}
 .heartCard{border-left:4px solid var(--jade)}
 .stageBar{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--jade2);background:var(--paper2);
@@ -417,7 +425,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           </div>
           <div class="dcDiv"></div>
           <div class="dcLbl">小组成果形式</div>
-          <div class="dcOut">四件成果：作品墙 · 研学感悟 · 我的立志卡 · <b>一支 60—90 秒讲解短片</b>（AI 辅助）</div>
+          <div class="dcOut">四件成果：作品墙 · 实践感悟 · 我的立志卡 · <b>讲解短片（选做）</b></div>
           <div class="dcSegs"><span>① 错 · 亮出 AI 原话</span><span>② 真 · 现场证据反证</span><span>③ 讲 · 家乡话重讲</span></div>
           <div class="dcFoot">把真实的徽州手艺，带回给高原的亲友</div>
         </div>
@@ -566,13 +574,13 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
       <div class="pad">
         <div class="stageBar"><b>匠心 → 立心</b><span class="sd">从作品到志向 · 回答子问题 3</span></div>
         <div class="card dark"><div class="dh1">成果集 · 寻脉徽州 · 匠心报国</div>
-          <div class="dh2">作品墙 · 三段短片 · 研学感悟 · 我的立志卡，把三天的成长排成一份成果。</div><div class="dhTag">回答子问题 3 · 怎样讲，远方的人才会听懂</div></div>
+          <div class="dh2">作品墙 · 三段短片 · 实践感悟 · 我的立志卡，把三天的成长排成一份成果。</div><div class="dhTag">回答子问题 3 · 怎样讲，远方的人才会听懂</div></div>
 
         <div class="secTit">① 手艺作品墙<em>五天手艺，我的作品</em></div>
         <div class="card inkCard"><div class="workGrid" id="workGrid"></div>
           </div>
 
-        <div class="secTit">② 研学感悟<em>最打动我的那一刻</em></div>
+        <div class="secTit">② 实践感悟<em>最打动我的那一刻</em></div>
         <div class="card">
           <div class="lbl" style="margin-top:0"><b>三天里最打动我的一件作品 / 一个匠人故事</b></div>
           <textarea class="txArea" id="inReflect" maxlength="300" placeholder="例如：墨厂师傅说描金急不得，一笔是一笔——我想到我练琴也总想快…"></textarea>
@@ -602,8 +610,17 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <div class="hintLine" style="text-align:left;margin-top:6px">这两项配合前面的立志卡，就是闭营立志表达的完整内容。</div>
         </div>
 
-        <div class="secTit">成果四 · 讲解短片《一门手艺·两种说法》<em>AI 辅助的生成成果 · 60—90 秒</em></div>
-        <div class="card hintCard"><div class="dcOut">这是四件成果中的一件——用 AI 帮你把口播说顺，但<b>证据、判断和讲法都是你的</b>。视频本体放平台展出，这里存脚本、封面与链接。</div></div>
+        <div class="secTit">成果四 · 讲解短片<em>选做 · 把真实讲给远方的人</em></div>
+        <div class="card hintCard"><div class="dcOut">如果要把这门的真实讲给高原的亲友，可以用一支短片——<b>证据、判断和讲法都是你的</b>，AI 只帮忙把话说顺。不做也不影响前三件成果的完整。</div></div>
+        <div class="secTit">导出完整成果 PDF<em>可直接打印上交</em></div>
+        <div class="card">
+          <p style="font-size:12.5px;line-height:1.85;color:var(--ink2);margin-bottom:10px">把四件成果与三阶段的现场记录排成一份 A4 成果集，可直接打印上交。</p>
+          <button class="btn btn-red blk" id="btnExportPDF">导出完整成果 PDF（含全部照片）</button>
+          <div class="hintLine" id="pdfState">生成需几秒钟，全程在本机完成，不会上传任何内容。</div>
+        </div>
+        <details class="toolFold">
+          <summary>展开讲解短片工具 <span>分镜 · 封面 · AI 提示词 · 档案图（选做）</span></summary>
+          <div class="foldBody">
         <div class="secTit">三段式分镜脚本 <em>亮原话 · 摆证据 · 重新讲</em></div>
         <div class="segBox s1"><div class="sh"><div class="sn">①</div><div class="st2">亮原话 · AI 原话与可疑之处</div><div class="sd">约 15 秒</div></div>
           <textarea class="txArea" id="inSeg1" placeholder="念出 AI 那句话，再说出你当时觉得哪里不对"></textarea>
@@ -641,12 +658,9 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           </div>
         </div>
 
-        <div class="secTit">导出完整成果 PDF<em>可直接打印上交</em></div>
-        <div class="card">
-          <p style="font-size:12.5px;line-height:1.85;color:var(--ink2);margin-bottom:10px">封面、行前 AI 原话与待核清单、五手艺现场记录与照片、校准对照表、汉藏对照卡、分镜脚本与封面、评价与收获，排成一份 A4 成果集。</p>
-          <button class="btn btn-red blk" id="btnExportPDF">导出完整成果 PDF（含全部照片）</button>
-          <div class="hintLine" id="pdfState">生成需几秒钟，全程在本机完成，不会上传任何内容。</div>
-        </div>
+          </div>
+        </details>
+
       </div>
     </section>
 
@@ -855,7 +869,7 @@ var TASK_DEF={
 var ITIN=[
  {t:'文脉启程 · 徽州印象',sub:'开营 · 画里宏村 · 徽秀',
   rows:[
-   {w:'上午',blocks:[{h:'【研学启程】',items:['徽州初印象']}]},
+   {w:'上午',blocks:[{h:'【实践启程】',items:['徽州初印象']}]},
    {w:'中午',blocks:[{h:'【开营仪式】',items:['发布探索任务','安全公约与分组规则']}]},
    {w:'下午',blocks:[{h:'【画里宏村】',items:['解码牛形水系','承志堂三雕','耕读传家的匾额楹联']}]},
    {w:'晚间',blocks:[{h:'【徽秀大剧院】',items:['史诗中的徽州']}]}
@@ -872,7 +886,7 @@ var ITIN=[
   rows:[
    {w:'上午',blocks:[{h:'【世赛基地】',items:['测量·放线·砌筑·种植','按世赛规程完成徽景造园']}]},
    {w:'中午',blocks:[{h:'【闭营仪式】',items:['学唱黄梅戏','营期精彩视频回顾']}]},
-   {w:'下午',blocks:[{h:'【研学返程】',items:['承续百工，知行致远']}]}
+   {w:'下午',blocks:[{h:'【实践返程】',items:['承续百工，知行致远']}]}
   ],pts:[4]}
 ];
 var HAN_LABELS=['材料工具','制作工序','生活用途'];
@@ -1613,7 +1627,7 @@ function pdfMakeDoc(a){
  d.block('口播一句',ST.oral);d.block('母语与文化审校',ST.mutu?'藏族同学已确认：讲得通，无先进/落后比较':'（尚未审校）');
  d.start('四 · 成果集','作品墙 · 三段式短片 · 感悟 · 立志卡');
  var mw=myFieldIdx();FIELDS.forEach(function(F,i){if(miSafe(mw,i))return;if(a.work[i])d.img(a.work[i],'手艺作品 · '+F.short,700,true);});
- d.block('研学感悟 · 最打动我的',ST.reflect);
+ d.block('实践感悟 · 最打动我的',ST.reflect);
  d.block('① 错 · AI 原话与可疑之处',ST.seg1);d.block('② 真 · 现场证据反证',ST.seg2);d.block('③ 讲 · 家乡话重讲',ST.seg3);
  if(a.cover)d.img(a.cover,'短片封面截图',900,true);else d.block('短片封面','（未上传）');
  d.block('平台展出链接',ST.link||'（未填）');
