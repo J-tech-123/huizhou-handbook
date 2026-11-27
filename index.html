@@ -106,6 +106,12 @@ html,body{height:100%}
 .sgItem span{display:block;font-size:10px;text-align:center;color:var(--jade2);padding:5px 2px;font-weight:700}
 .homeBanner{height:150px;border-radius:16px;overflow:hidden;margin-bottom:12px;border:1px solid var(--line)}
 .homeBanner img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.hintCard{padding:12px 14px}
+.heartCard{border-left:4px solid var(--jade)}
+.stageBar{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--jade2);background:var(--paper2);
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;margin-bottom:11px;width:max-content;max-width:100%}
+.stageBar b{color:var(--jade);font-weight:700}
+.stageBar .sd{color:var(--ink2)}
 .dcHint{font-size:11px;color:var(--ink2);line-height:1.7;margin-top:6px}
 .qchain{margin-top:4px}
 .qcItem{display:flex;gap:9px;align-items:flex-start;margin-top:9px;text-align:left}
@@ -393,6 +399,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
       </div>
       <div class="pad">
         <div class="homeBanner"><img id="homeBannerImg" alt="徽州全景"></div>
+        <div class="stageBar"><b>总览</b><span class="sd">寻脉 → 匠心 → 立心 · 三天三步</span></div>
         <div class="card inkCard driveCard">
           <div class="dcLbl">主题 · 寻脉徽州 · 匠心报国</div>
           <div class="dcQ">从文化熏陶，到认同自信，再到立志报国。</div>
@@ -410,9 +417,9 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           </div>
           <div class="dcDiv"></div>
           <div class="dcLbl">小组成果形式</div>
-          <div class="dcOut">一支 <b>60—90 秒</b>讲解短片《一门手艺·两种说法》</div>
+          <div class="dcOut">四件成果：作品墙 · 研学感悟 · 我的立志卡 · <b>一支 60—90 秒讲解短片</b>（AI 辅助）</div>
           <div class="dcSegs"><span>① 错 · 亮出 AI 原话</span><span>② 真 · 现场证据反证</span><span>③ 讲 · 家乡话重讲</span></div>
-          <div class="dcFoot">作品照片 · 三段短片 · 我的立志卡 —— 带回给高原的亲友</div>
+          <div class="dcFoot">把真实的徽州手艺，带回给高原的亲友</div>
         </div>
         <div class="secTit">三阶段 · 先看一眼徽州<em>寻脉 → 匠心 → 立心</em></div>
         <div class="stageGallery">
@@ -464,8 +471,9 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-prep">
       <div class="pad">
+        <div class="stageBar"><b>寻脉 · 文化熏陶</b><span class="sd">出发前的准备 · 为子问题 1、2 立靶</span></div>
         <div class="card dark"><div class="dh1">行前 · 认领手艺，让 AI 先讲一遍</div>
-          <div class="dh2">认领手艺 → 复制提示词让 AI 讲一遍 → 列出 3 条想现场核对的说法。</div><div class="dhTag">回答子问题 2 · 别人讲的版本可信吗</div></div>
+          <div class="dh2">认领手艺 → 复制提示词让 AI 讲一遍 → 列出 3 条想现场核对的说法。</div><div class="dhTag">为子问题 1、2 立靶 · 认领手艺 + 列出待核说法</div></div>
 
         <div class="pageBanner"><img src="" id="prepBanner" alt="徽州古城"></div>
         <div class="secTit">开题 · 我认领的手艺</div>
@@ -513,6 +521,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-trip">
       <div class="pad">
+        <div class="stageBar"><b>寻脉 · 文化熏陶</b><span class="sd">手艺现场 · 回答子问题 1</span></div>
         <div id="fieldTabs"></div>
         <div id="fieldBody"></div>
       </div>
@@ -520,6 +529,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-calib">
       <div class="pad">
+        <div class="stageBar"><b>匠心 · 认同自信</b><span class="sd">用证据反证 · 回答子问题 2</span></div>
         <div class="card dark"><div class="dh1">校准 · 把 AI 讲错的改对</div>
           <div class="dh2">左边 AI 原话，中间现场细节，右边错在哪。三组填完进入分镜。</div><div class="dhTag">回答子问题 2 · 我的证据能说什么</div></div>
 
@@ -554,6 +564,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-result">
       <div class="pad">
+        <div class="stageBar"><b>匠心 → 立心</b><span class="sd">从作品到志向 · 回答子问题 3</span></div>
         <div class="card dark"><div class="dh1">成果集 · 寻脉徽州 · 匠心报国</div>
           <div class="dh2">作品墙 · 三段短片 · 研学感悟 · 我的立志卡，把三天的成长排成一份成果。</div><div class="dhTag">回答子问题 3 · 怎样讲，远方的人才会听懂</div></div>
 
@@ -581,14 +592,26 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <div class="promptBox" id="aspPromptBox" style="margin-top:10px"></div>
         </div>
 
-        <div class="secTit">三段式分镜脚本</div>
-        <div class="segBox s1"><div class="sh"><div class="sn">①</div><div class="st2">错 · AI 原话与可疑之处</div><div class="sd">约 15 秒</div></div>
+        <div class="secTit">立心 · 闭营仪式<em>学一句乡音，做一次汇报</em></div>
+        <div class="card inkCard heartCard">
+          <div class="aspLead">闭营不是结束，是把三天的感受说出来、唱出来、定下来。学校用这三个环节收束课程。</div>
+          <div class="lbl"><b>黄梅乡音 · 我学会的一句</b></div>
+          <textarea class="txArea" id="inHuangmei" maxlength="100" placeholder="记下一句你跟着唱的黄梅戏词，或你听到的乡音感受"></textarea>
+          <div class="lbl"><b>闭营汇报 · 我要展示的一件成果</b></div>
+          <textarea class="txArea" id="inReport" maxlength="120" placeholder="例如：我要展示描金墨和校准对照表，讲清 AI 哪里讲错了"></textarea>
+          <div class="hintLine" style="text-align:left;margin-top:6px">这两项配合前面的立志卡，就是闭营立志表达的完整内容。</div>
+        </div>
+
+        <div class="secTit">成果四 · 讲解短片<em>AI 辅助的生成成果 · 60—90 秒</em></div>
+        <div class="card hintCard"><div class="dcOut">这是四件成果中的一件——用 AI 帮你把口播说顺，但<b>证据、判断和讲法都是你的</b>。视频本体放平台展出，这里存脚本、封面与链接。</div></div>
+        <div class="secTit">三段式分镜脚本 <em>亮原话 · 摆证据 · 重新讲</em></div>
+        <div class="segBox s1"><div class="sh"><div class="sn">①</div><div class="st2">亮原话 · AI 原话与可疑之处</div><div class="sd">约 15 秒</div></div>
           <textarea class="txArea" id="inSeg1" placeholder="念出 AI 那句话，再说出你当时觉得哪里不对"></textarea>
           <button class="btn btn-ghost sm segAI" data-seg="1">✦ 让 AI 帮我写这一段</button></div>
-        <div class="segBox s2"><div class="sh"><div class="sn">②</div><div class="st2">真 · 现场证据反证</div><div class="sd">约 40 秒</div></div>
+        <div class="segBox s2"><div class="sh"><div class="sn">②</div><div class="st2">摆证据 · 现场证据反证</div><div class="sd">约 40 秒</div></div>
           <textarea class="txArea" id="inSeg2" placeholder="用现场的数字、动作、现场文字逐条反证，说出你看到的细节…"></textarea>
           <button class="btn btn-ghost sm segAI" data-seg="2">✦ 让 AI 帮我写这一段</button></div>
-        <div class="segBox s3"><div class="sh"><div class="sn">③</div><div class="st2">讲 · 家乡话重讲</div><div class="sd">约 25 秒</div></div>
+        <div class="segBox s3"><div class="sh"><div class="sn">③</div><div class="st2">重新讲 · 家乡话重讲</div><div class="sd">约 25 秒</div></div>
           <textarea class="txArea" id="inSeg3" placeholder="用高原孩子听得懂的话，把这门手艺重新讲一遍"></textarea>
           <button class="btn btn-ghost sm segAI" data-seg="3">✦ 让 AI 帮我写这一段</button></div>
         <div class="hintLine" style="text-align:left;margin:-2px 2px 12px">点按钮复制该段提示词给 AI，把给的句子改一改进框。</div>
@@ -629,6 +652,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
 
     <section class="view" id="v-review">
       <div class="pad">
+        <div class="stageBar"><b>立心 · 立志报国</b><span class="sd">回望三阶段 · 让成长被看见</span></div>
         <div class="card dark"><div class="dh1">评价 · 让这段旅程被看见</div>
           <div class="dh2">同伴反馈、家人观看后填；导师评语由老师写；最后给自己打分。</div></div>
 
@@ -860,11 +884,11 @@ var BOUNDARY=[
  '感悟、结论、打分必须是我自己的话，老师要看"我为什么这么想"'
 ];
 var SCORE_DIMS=[
- {k:'cu',n:'文化认知',d:'能说出徽州代表遗产与手艺的价值（看校准对照、汉藏卡）'},
- {k:'pa',n:'实践参与',d:'完成描金、鱼灯、竹雕、烧饼等体验并留下作品照片'},
- {k:'cr',n:'匠心态度',d:'现场细节具体、匠人提问有思考，尊重技艺与劳动'},
- {k:'ho',n:'家国情怀',d:'立志卡写出文化认同与回校后的行动打算'},
- {k:'tm',n:'团队协作',d:'小组分工配合、完成造园与成果汇报'}
+ {k:'cu',n:'文化认知',d:'对应子问题1 · 能说出徽州代表遗产与手艺的价值（看现场细节、校准对照）'},
+ {k:'pa',n:'实践参与',d:'对应子问题1 · 完成描金、鱼灯、竹雕、烧饼等体验并留下作品照片'},
+ {k:'cr',n:'匠心态度',d:'对应子问题2 · 现场细节具体、证据反证有力，尊重技艺与劳动'},
+ {k:'ho',n:'家国情怀',d:'对应子问题3 · 立志卡与闭营汇报写出文化认同与回校行动'},
+ {k:'tm',n:'团队协作',d:'贯穿三阶段 · 小组分工配合、完成造园与闭营成果汇报'}
 ];
 var ERR_TYPES=['史实','工序','术语','说得对但没说透'];
 var ANCHORS_LABEL=['我认领的手艺','AI 讲错的地方','现场最有力的证据','这门手艺连着的一方水土','我选择这门手艺的原因'] ;
@@ -884,7 +908,7 @@ function blankState(){return {
  hanRows:blankHanRows(),tibCraft:'',tibWord:'',oral:'',mutu:false,
  boundary:BOUNDARY.map(function(){return false;}),
  seg1:'',seg2:'',seg3:'',evidence:'',duration:'',cover:'',link:'',made:false,
- aspWant:'',aspWhy:'',aspGoal:'',aspPlan:'',aspCard:'',reflect:'',
+ aspWant:'',aspWhy:'',aspGoal:'',aspPlan:'',aspCard:'',reflect:'',huangmei:'',report:'',
  peer:{a1:'',b1:'',a2:'',b2:''},tutor:'',family:'',innov:'',gain1:'',gain2:'',
  score:{cu:0,pa:0,cr:0,ho:0,tm:0}
 };}
@@ -919,7 +943,7 @@ function norm(){
  ST.peer=Object.assign({a1:'',b1:'',a2:'',b2:''},ST.peer||{});
  ST.score=Object.assign({cu:0,pa:0,cr:0,ho:0,tm:0},ST.score||{});
  ST.spots.forEach(function(o){['photo','bonus','work','ask'].forEach(function(k){if(typeof o[k]!=='string')o[k]='';});});
- ['aspWant','aspWhy','aspGoal','aspPlan','aspCard'].forEach(function(k){if(typeof ST[k]!=='string')ST[k]='';});
+ ['aspWant','aspWhy','aspGoal','aspPlan','aspCard','reflect','huangmei','report'].forEach(function(k){if(typeof ST[k]!=='string')ST[k]='';});
 }
 norm();
 
@@ -1322,6 +1346,8 @@ function renderResult(){
  if($('inReflect'))$('inReflect').value=ST.reflect||'';
  if($('inAspCard'))$('inAspCard').value=ST.aspCard||'';
  if($('inAspPlan'))$('inAspPlan').value=ST.aspPlan||'';
+ if($('inHuangmei'))$('inHuangmei').value=ST.huangmei||'';
+ if($('inReport'))$('inReport').value=ST.report||'';
  renderWorkGrid();renderAspCompare();
  if($('aspPromptBox'))$('aspPromptBox').innerHTML='<span class="ph">提示词已代入你的行前立志与现场记录，点上方按钮复制</span>'+esc(aspPrompt());
  $('promptBox').innerHTML='<span class="ph">提示词已代入你的内容，点上方复制</span>'+esc(resultPrompt());
@@ -1345,14 +1371,14 @@ function renderReview(){
  document.querySelectorAll('#scoreList .star').forEach(function(el){if(el.dataset.bound)return;el.dataset.bound='1';
   el.addEventListener('click',function(){var k=el.parentNode.dataset.k,s=+el.dataset.s;ST.score[k]=(ST.score[k]===s?0:s);save();renderReview();});});
  if($('footBannerImg'))$('footBannerImg').src=PHOTO.huangmei;
- $('quoteEnd').innerHTML='<b>结语 · 寻脉徽州，匠心报国</b><br>听 AI 讲一遍，再用脚步把它改对，最后讲给高原的亲人听。读懂一方水土，敬重一门技艺，立下一个志向——这就是匠心报国。';
+ $('quoteEnd').innerHTML='<b>结语 · 寻脉徽州，匠心报国</b><br>你走过现场、证据和家乡话，让一门手艺的真实被看见、被听懂。读懂一方水土，敬重一门技艺，立下一个志向——这就是匠心报国。愿这份真实，随你带回高原的亲友身边。';
 }
 
 /* ============ 事件绑定（行前与成果静态输入） ============ */
 ['inMsg','inAiText','inAspWant','inAspWhy','inAspGoal'].forEach(function(id){$(id).addEventListener('input',function(){
  var k={inMsg:'msg',inAiText:'aiText',inAspWant:'aspWant',inAspWhy:'aspWhy',inAspGoal:'aspGoal'}[id];ST[k]=this.value;save();});});
-['inSeg1','inSeg2','inSeg3','inLink','inReflect','inAspCard','inAspPlan'].forEach(function(id){$(id).addEventListener('input',function(){
- var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link',inReflect:'reflect',inAspCard:'aspCard',inAspPlan:'aspPlan'}[id];ST[k]=this.value;save();});});
+['inSeg1','inSeg2','inSeg3','inLink','inReflect','inAspCard','inAspPlan','inHuangmei','inReport'].forEach(function(id){$(id).addEventListener('input',function(){
+ var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link',inReflect:'reflect',inAspCard:'aspCard',inAspPlan:'aspPlan',inHuangmei:'huangmei',inReport:'report'}[id];ST[k]=this.value;save();});});
 ['inTibCraft','inTibWord','inOral'].forEach(function(id){$(id).addEventListener('input',function(){
  var k={inTibCraft:'tibCraft',inTibWord:'tibWord',inOral:'oral'}[id];ST[k]=this.value;save();});});
 $('mutuRow').addEventListener('click',function(){ST.mutu=!ST.mutu;save();$('mutuRow').classList.toggle('on',!!ST.mutu);});
@@ -1598,6 +1624,9 @@ function pdfMakeDoc(a){
  d.block('出发前 · 小目标',ST.aspGoal);
  d.block('此刻我想说的话',ST.aspCard);
  d.block('回校后要做的一件事',ST.aspPlan);
+ d.start('立心 · 闭营仪式','学一句乡音，做一次汇报');
+ d.block('黄梅乡音 · 我学会的一句',ST.huangmei);
+ d.block('闭营汇报 · 我要展示的成果',ST.report);
  d.start('评价与收获','让这段旅程被看见');
  d.block('同伴一 · 触动 / 建议',(ST.peer.a1||'（未填）')+'　｜　'+(ST.peer.b1||''));
  d.block('同伴二 · 触动 / 建议',(ST.peer.a2||'（未填）')+'　｜　'+(ST.peer.b2||''));
