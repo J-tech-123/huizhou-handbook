@@ -84,6 +84,8 @@ html,body{height:100%}
 .card.dark{background:linear-gradient(160deg,#294039,#1c302d);border-color:transparent}
 .card.dark .dh1{font-size:14px;letter-spacing:1.5px;color:var(--gold2);font-family:KaiTi,STKaiti,serif}
 .card.dark .dh2{font-size:12px;color:#c6ddd2;margin-top:7px;line-height:1.85}
+.dhTag{display:inline-block;margin-top:9px;font-size:10.5px;color:var(--gold2);border:1px solid rgba(170,196,182,.4);border-radius:999px;padding:3px 10px}
+.vhTag{font-size:10.5px;color:var(--jade2);background:var(--paper2);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:9px}
 /* ── 水墨风 · 核心驱动问题卡 ── */
 .inkCard{position:relative;overflow:hidden}
 .inkCard::after{content:"";position:absolute;right:-26px;top:-26px;width:120px;height:120px;border-radius:50%;
@@ -104,6 +106,13 @@ html,body{height:100%}
 .sgItem span{display:block;font-size:10px;text-align:center;color:var(--jade2);padding:5px 2px;font-weight:700}
 .homeBanner{height:150px;border-radius:16px;overflow:hidden;margin-bottom:12px;border:1px solid var(--line)}
 .homeBanner img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.dcHint{font-size:11px;color:var(--ink2);line-height:1.7;margin-top:6px}
+.qchain{margin-top:4px}
+.qcItem{display:flex;gap:9px;align-items:flex-start;margin-top:9px;text-align:left}
+.qcNo{flex:none;width:19px;height:19px;border-radius:6px;background:var(--jade);color:#fff;font-size:11px;
+  display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:1px}
+.qcItem b{display:block;font-size:12.5px;color:var(--ink);line-height:1.6}
+.qcItem em{display:block;font-style:normal;font-size:10.5px;color:var(--jade2);line-height:1.7;margin-top:2px}
 .stageLadder{display:flex;gap:5px;margin-top:11px;flex-wrap:wrap}
 .stageLadder span{font-size:10.5px;color:var(--jade2);background:var(--paper2);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
 .dcOut{font-size:13px;line-height:1.8;color:var(--ink)}
@@ -390,7 +399,15 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <div class="stageLadder"><span>① 知徽州 · 寻脉</span><span>② 爱徽州 · 匠心</span><span>③ 兴中华 · 立心</span></div>
           <div class="dcDiv"></div>
           <div class="dcLbl">核心驱动问题</div>
-          <div class="dcQ">如果让 AI 替你把徽州的一门手艺讲给高原的亲友听，它<b>可能会讲错什么</b>？请你把它<b>改对</b>，再用<b>家乡人听得懂的话</b>讲出来。</div>
+          <div class="dcQ">当远方的人想了解徽州手艺，能看到的常常是被讲错、被简化的版本——一门手艺的<b>真实</b>，怎样才能被看见、被听懂、被传下去？</div>
+          <div class="dcHint">AI 会讲错，只是这道题的一部分；真正要回答的，是手艺和手艺人的真实。</div>
+          <div class="dcDiv"></div>
+          <div class="dcLbl">分解问题 · 三阶段对应</div>
+          <div class="qchain">
+            <div class="qcItem"><span class="qcNo">1</span><div><b>这门手艺真在哪里？谁在守着它？</b><em>寻脉 · 文化熏陶 → 现场细节、作品照片、匠人提问</em></div></div>
+            <div class="qcItem"><span class="qcNo">2</span><div><b>别人讲的版本可信吗？我的证据能说什么？</b><em>匠心 · 认同自信 → 校准对照表、汉藏对照卡</em></div></div>
+            <div class="qcItem"><span class="qcNo">3</span><div><b>怎样讲，远方的人才会听懂并记住？</b><em>立心 · 立志报国 → 三段短片、我的立志卡</em></div></div>
+          </div>
           <div class="dcDiv"></div>
           <div class="dcLbl">小组成果形式</div>
           <div class="dcOut">一支 <b>60—90 秒</b>讲解短片《一门手艺·两种说法》</div>
@@ -448,7 +465,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
     <section class="view" id="v-prep">
       <div class="pad">
         <div class="card dark"><div class="dh1">行前 · 认领手艺，让 AI 先讲一遍</div>
-          <div class="dh2">认领手艺 → 复制提示词让 AI 讲一遍 → 列出 3 条想现场核对的说法。</div></div>
+          <div class="dh2">认领手艺 → 复制提示词让 AI 讲一遍 → 列出 3 条想现场核对的说法。</div><div class="dhTag">回答子问题 2 · 别人讲的版本可信吗</div></div>
 
         <div class="pageBanner"><img src="" id="prepBanner" alt="徽州古城"></div>
         <div class="secTit">开题 · 我认领的手艺</div>
@@ -504,7 +521,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
     <section class="view" id="v-calib">
       <div class="pad">
         <div class="card dark"><div class="dh1">校准 · 把 AI 讲错的改对</div>
-          <div class="dh2">左边 AI 原话，中间现场细节，右边错在哪。三组填完进入分镜。</div></div>
+          <div class="dh2">左边 AI 原话，中间现场细节，右边错在哪。三组填完进入分镜。</div><div class="dhTag">回答子问题 2 · 我的证据能说什么</div></div>
 
         <div class="pageBanner"><img src="" id="calibBanner" alt="徽州人文"></div>
         <div class="secTit">校准对照表<em>每组 3 条</em></div>
@@ -538,7 +555,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
     <section class="view" id="v-result">
       <div class="pad">
         <div class="card dark"><div class="dh1">成果集 · 寻脉徽州 · 匠心报国</div>
-          <div class="dh2">作品墙 · 三段短片 · 研学感悟 · 我的立志卡，把三天的成长排成一份成果。</div></div>
+          <div class="dh2">作品墙 · 三段短片 · 研学感悟 · 我的立志卡，把三天的成长排成一份成果。</div><div class="dhTag">回答子问题 3 · 怎样讲，远方的人才会听懂</div></div>
 
         <div class="secTit">① 手艺作品墙<em>五天手艺，我的作品</em></div>
         <div class="card inkCard"><div class="workGrid" id="workGrid"></div>
@@ -1128,6 +1145,7 @@ function renderTrip(){
   : (mi<0 ? '<div class="mineBar">先在首页认领一门手艺；这一门可先了解，暂不计入完成度</div>'
           : '<div class="mineBar">这一门不是你认领的 · 可浏览了解，不计入完成度（你的是 '+esc(FIELDS[mi].short)+' ★）</div>');
  var h=mineBar;
+ h+='<div class="vhTag">回答子问题 1 · 这门手艺真在哪里</div>';
  h+='<div class="tripBanner"><img src="'+PHOTO[BANNER[F.id]]+'" alt="'+esc(F.short)+'实景"></div>';
  h+='<div class="card inkCard workCard"><div class="sh"><div class="sn" style="background:var(--jade)">★</div><div class="st2">我的作品 · 上传这张手艺的照片</div></div>'+
   '<div class="hintLine" style="text-align:left;margin:2px 0 8px">拍一张你做的作品，它会进成果页作品墙。</div>'+
