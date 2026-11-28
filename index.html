@@ -1678,7 +1678,7 @@ function heroSeals(){
 /* ============ PWA 离线缓存：仅在 http(s) 下注册，file:// 自动跳过 ============ */
 if('serviceWorker' in navigator && (location.protocol==='https:'||location.protocol==='http:')){
  window.addEventListener('load',function(){
-  navigator.serviceWorker.register('sw.js').catch(function(){});
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){if(reg&&reg.update)reg.update();}).catch(function(){});
  });
 }
 
