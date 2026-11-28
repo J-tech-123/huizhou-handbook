@@ -1711,7 +1711,24 @@ function heroSeals(){
 /* ============ PWA 离线缓存：仅在 http(s) 下注册，file:// 自动跳过 ============ */
 if('serviceWorker' in navigator && (location.protocol==='https:'||location.protocol==='http:')){
  window.addEventListener('load',function(){
-  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){if(reg&&reg.update)reg.update();}).catch(function(){});
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){
+   if(reg.waiting && reg.waiting.postMessage)reg.waiting.postMessage({type:'SKIP_WAITING'});
+   reg.addEventListener('updatefound',function(){
+    var nw=reg.installing;
+    if(!nw)return;
+    nw.addEventListener('statechange',function(){
+     if(nw.state==='installed' && nw.postMessage)nw.postMessage({type:'SKIP_WAITING'});
+    });
+   });
+   if(reg.update)reg.update();
+  }).catch(function(){});
+  /* 新 SW 接管后自动刷新一次（sessionStorage 防死循环） */
+  var reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){
+   if(reloaded)return;
+   try{if(sessionStorage.getItem('hbAutoReload')==='1')return;sessionStorage.setItem('hbAutoReload','1');}catch(e){}
+   reloaded=true;window.location.reload();
+  });
  });
 }
 
