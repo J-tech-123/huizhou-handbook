@@ -1,6 +1,6 @@
 /* 徽州百工校准档案 · 离线缓存 Service Worker */
 /* 更新手册内容后，把版本号 +1 即可让用户拿到新版 */
-var CACHE = 'huizhou-baigong-v27';
+var CACHE = 'huizhou-baigong-v28';
 var ASSETS = [
   './',
   './index.html',
