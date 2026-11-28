@@ -598,8 +598,13 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <div class="lbl"><b>回校后我要做的一件事</b></div>
           <textarea class="txArea" id="inAspPlan" maxlength="120" placeholder="例如：在班里做一次徽州手艺分享会，教同学用藏语和汉语各讲一遍"></textarea>
           <button class="btn btn-jade blk" id="btnAspAI" style="margin-top:10px">✦ 让 AI 帮我润色立志卡</button>
-          <div class="hintLine" style="text-align:left;margin-top:6px">复制提示词给 AI 润色；话可以借 AI 说顺，志向要写你自己的。</div>
+          <div class="hintLine" style="text-align:left;margin-top:6px">复制提示词给 AI：让它把话说顺，<b>并生成一张立志卡图片</b>；志向内容要写你自己的。</div>
           <div class="promptBox" id="aspPromptBox" style="margin-top:10px"></div>
+          <div class="lbl" style="margin-top:14px"><b>AI 生成的立志卡图 · 上传</b></div>
+          <div class="uploadBox" id="aspImgBox"><svg viewBox="0 0 24 24"><path d="M12 16V6M8 10l4-4 4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>上传 AI 生成的立志卡图片</div>
+          <div id="aspImgShow" style="display:none"><div class="shotFrame"><img id="aspImgPrev" alt="我的立志卡"></div>
+            <button class="btn btn-ghost sm blk" id="btnDelAspImg" style="margin-top:8px">换一张</button></div>
+          <div class="hintLine" style="text-align:left;margin-top:6px">这张图会放进导出的 PDF，可直接作为成果分享。</div>
         </div>
 
         <div class="secTit">立心 · 闭营仪式<em>学一句乡音，做一次汇报</em></div>
@@ -918,7 +923,7 @@ function blankState(){return {
  hanRows:blankHanRows(),tibCraft:'',tibWord:'',oral:'',mutu:false,
  boundary:BOUNDARY.map(function(){return false;}),
  seg1:'',seg2:'',seg3:'',evidence:'',duration:'',cover:'',link:'',made:false,
- aspWant:'',aspWhy:'',aspGoal:'',aspPlan:'',aspCard:'',reflect:'',huangmei:'',report:'',
+ aspWant:'',aspWhy:'',aspGoal:'',aspPlan:'',aspCard:'',aspImage:'',reflect:'',huangmei:'',report:'',
  peer:{a1:'',b1:'',a2:'',b2:''},tutor:'',family:'',innov:'',gain1:'',gain2:'',
  score:{cu:0,pa:0,cr:0,ho:0,tm:0}
 };}
@@ -953,7 +958,7 @@ function norm(){
  ST.peer=Object.assign({a1:'',b1:'',a2:'',b2:''},ST.peer||{});
  ST.score=Object.assign({cu:0,pa:0,cr:0,ho:0,tm:0},ST.score||{});
  ST.spots.forEach(function(o){['photo','bonus','work','ask'].forEach(function(k){if(typeof o[k]!=='string')o[k]='';});});
- ['aspWant','aspWhy','aspGoal','aspPlan','aspCard','reflect','huangmei','report'].forEach(function(k){if(typeof ST[k]!=='string')ST[k]='';});
+ ['aspWant','aspWhy','aspGoal','aspPlan','aspCard','aspImage','reflect','huangmei','report'].forEach(function(k){if(typeof ST[k]!=='string')ST[k]='';});
 }
 norm();
 
@@ -1337,7 +1342,7 @@ function renderAspCompare(){
 }
 /* AI 润色立志卡提示词 */
 function aspPrompt(){
- return '你是青少年实践教育导师。请根据我下面的行前立志与三天实践记录，帮我写一张"立志卡"的口播稿（约80字），要求：① 先说出我出发前想学的本领，再说三天后我真正懂得了什么；② 把徽州手艺的匠心与我的成长联系起来，落到"勤学本领、传承文化、报效祖国"；③ 用初中生能懂的话，不要空话套话，不要用"先进/落后"比较；④ 结尾给出回校后要做的一件具体小事。不要编造我没提供的经历。\n\n认领手艺：'+(ST.craft||'未填')+
+ return '你是青少年实践教育导师。请根据我下面的行前立志与三天实践记录，帮我做一张"立志卡"：先写一段口播稿（约80字），再据此生成一张竖版立志卡图片（含标题"寻脉徽州 匠心报国"、我的名字、一句志向、落款"海亮实验中学 西藏班"，配色庄重、图文清晰）。口播稿要求：① 先说出我出发前想学的本领，再说三天后我真正懂得了什么；② 把徽州手艺的匠心与我的成长联系起来，落到"勤学本领、传承文化、报效祖国"；③ 用初中生能懂的话，不要空话套话，不要用"先进/落后"比较；④ 结尾给出回校后要做的一件具体小事。不要编造我没提供的经历。请先给出口播稿文字，再生成立志卡图片。\n\n认领手艺：'+(ST.craft||'未填')+
   '\n行前想学的本领：'+(ST.aspWant||'未填')+'\n为什么想学：'+(ST.aspWhy||'未填')+'\n行前小目标：'+(ST.aspGoal||'未填')+
   '\n现场三个细节：'+FIELDS.map(function(F,i){var o=ST.spots[i];return spotDone(i)?(F.short+'：'+(o.digit||'')+'；'+(o.action||'')+'；'+(o.quote||'')):'';}).filter(Boolean).join('　')+
   '\n最打动我的：'+(ST.reflect||'未填');
@@ -1361,6 +1366,15 @@ function renderResult(){
  box.onclick=function(){var fi=document.createElement('input');fi.type='file';fi.accept='image/*';
   fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;if(f.size>12*1024*1024){toast('图片太大，请压缩到 12MB 以内');return;}
    compressImage(f,900,function(url){if(!url){toast('读取失败，请重试');return;}ST.cover=url;save();renderResult();toast('封面已存入');});};fi.click();};
+ bindAspImage();
+}
+function bindAspImage(){
+ var box=$('aspImgBox');if(!box)return;
+ if(ST.aspImage){box.style.display='none';$('aspImgShow').style.display='block';$('aspImgPrev').src=ST.aspImage;}
+ box.onclick=function(){var fi=document.createElement('input');fi.type='file';fi.accept='image/*';
+  fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;if(f.size>12*1024*1024){toast('图片太大，请压缩到 12MB 以内');return;}
+   compressImage(f,900,function(url){if(!url){toast('读取失败，请重试');return;}ST.aspImage=url;save();renderResult();toast('立志卡图已存入，PDF 导出会带上');});};fi.click();};
+ var del=$('btnDelAspImg');if(del)del.onclick=function(){ST.aspImage='';save();renderResult();toast('立志卡图已移除');};
 }
 /* ============ 评价 ============ */
 function renderReview(){
@@ -1583,9 +1597,9 @@ function pdfCollect(cb){
  var srcs=[];srcs.push(ST.aiShot||'');
  FIELDS.forEach(function(F,i){srcs.push(ST.spots[i].photo||'');});
  FIELDS.forEach(function(F,i){srcs.push(ST.spots[i].work||'');});
- srcs.push(ST.cover||'');srcs.push(ST.made?drawCard():'');
+ srcs.push(ST.cover||'');srcs.push(ST.aspImage||'');srcs.push(ST.made?drawCard():'');
  var W=FIELDS.length;
- pdfLoadAll(srcs,function(ims){cb({ai:ims[0],spot:ims.slice(1,1+W),work:ims.slice(1+W,1+2*W),cover:ims[1+2*W],card:ims[2+2*W]});});}
+ pdfLoadAll(srcs,function(ims){cb({ai:ims[0],spot:ims.slice(1,1+W),work:ims.slice(1+W,1+2*W),cover:ims[1+2*W],aspImg:ims[2+2*W],card:ims[3+2*W]});});}
 function miSafe(mw,i){return mw>=0&&i!==mw;}
 function pdfMakeDoc(a){
  var d=PDFDoc();d.cover();
@@ -1627,6 +1641,7 @@ function pdfMakeDoc(a){
  d.block('出发前 · 小目标',ST.aspGoal);
  d.block('此刻我想说的话',ST.aspCard);
  d.block('回校后要做的一件事',ST.aspPlan);
+ if(a.aspImg)d.img(a.aspImg,'我的立志卡（AI 生成）',900,true);else d.block('立志卡图','（未上传 AI 生成的立志卡图片）');
  d.start('立心 · 闭营仪式','学一句乡音，做一次汇报');
  d.block('黄梅乡音 · 我学会的一句',ST.huangmei);
  d.block('闭营汇报 · 我要展示的成果',ST.report);
