@@ -599,22 +599,14 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
           <textarea class="txArea" id="inAspCard" maxlength="200" placeholder="例如：我想把徽墨描金讲给高原亲友听，也把这份耐心带回学习里"></textarea>
           <div class="lbl"><b>回校后我要做的一件事</b></div>
           <textarea class="txArea" id="inAspPlan" maxlength="120" placeholder="例如：在班里做一次徽州手艺分享会，教同学用藏语和汉语各讲一遍"></textarea>
-          <button class="btn btn-jade blk" id="btnAspAI" style="margin-top:10px">✦ 让 AI 帮我润色立志卡</button>
-          <div class="hintLine" style="text-align:left;margin-top:6px">复制提示词给 AI：让它把话说顺，<b>并生成一张立志卡图片</b>；志向内容要写你自己的。</div>
+          <button class="btn btn-jade blk" id="btnAspAI" style="margin-top:10px">✦ 复制提示词 · 让 AI 生成立志卡图</button>
+          <div class="hintLine" style="text-align:left;margin-top:6px">复制提示词给 AI，<b>只需生成一张立志卡图片</b>；志向内容要写你自己的，不用写口播稿。</div>
           <div class="promptBox" id="aspPromptBox" style="margin-top:10px"></div>
           <div class="lbl" style="margin-top:14px"><b>AI 生成的立志卡图 · 上传</b></div>
           <div class="uploadBox" id="aspImgBox"><svg viewBox="0 0 24 24"><path d="M12 16V6M8 10l4-4 4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>上传 AI 生成的立志卡图片</div>
           <div id="aspImgShow" style="display:none"><div class="shotFrame"><img id="aspImgPrev" alt="我的立志卡"></div>
             <button class="btn btn-ghost sm blk" id="btnDelAspImg" style="margin-top:8px">换一张</button></div>
           <div class="hintLine" style="text-align:left;margin-top:6px">这张图会放进导出的 PDF，可直接作为成果分享。</div>
-        </div>
-
-        <div class="secTit"><span class="who who-p">个人必做</span> 立心 · 闭营仪式<em>学一句乡音，做一次汇报</em></div>
-        <div class="card inkCard heartCard">
-          <div class="aspLead">闭营不是结束，是把三天的感受说出来、唱出来、定下来。学校用这三个环节收束课程。</div>
-          <div class="lbl"><b>黄梅乡音 · 我学会的一句</b></div>
-          <textarea class="txArea" id="inHuangmei" maxlength="100" placeholder="记下一句你跟着唱的黄梅戏词，或你听到的乡音感受"></textarea>
-          <div class="hintLine" style="text-align:left;margin-top:8px">闭营展示时，用你上面的立志卡和小组短片来汇报即可，不用另外再写。</div>
         </div>
 
         <div class="secTit"><span class="who who-t">小组共做</span> 成果四 · 讲解短片<em>小组协作 · 把真实讲给远方的人</em></div>
@@ -1340,10 +1332,10 @@ function renderAspCompare(){
 }
 /* AI 润色立志卡提示词 */
 function aspPrompt(){
- return '你是青少年实践教育导师。请根据我下面的行前立志与三天实践记录，帮我做一张"立志卡"：先写一段口播稿（约80字），再据此生成一张竖版立志卡图片（含标题"寻脉徽州 匠心报国"、我的名字、一句志向、落款"海亮实验中学 西藏班"，配色庄重、图文清晰）。口播稿要求：① 先说出我出发前想学的本领，再说三天后我真正懂得了什么；② 把徽州手艺的匠心与我的成长联系起来，落到"勤学本领、传承文化、报效祖国"；③ 用初中生能懂的话，不要空话套话，不要用"先进/落后"比较；④ 结尾给出回校后要做的一件具体小事。不要编造我没提供的经历。请先给出口播稿文字，再生成立志卡图片。\n\n认领手艺：'+(ST.craft||'未填')+
+ return '请根据我下面的行前立志与三天实践记录，为我（高一学生）生成一张竖版"立志卡"图片，只需要图片，不要写口播稿。图片要求：① 标题"寻脉徽州 匠心报国"；② 用一句话写出我的志向（从下面的内容里提炼，不要空话套话）；③ 落款"海亮实验中学 西藏班 · 我的名字"；④ 配色庄重、图文清晰，适合打印和分享。内容只能来自下面我提供的信息，不要编造。\n\n认领手艺：'+(ST.craft||'未填')+
   '\n行前想学的本领：'+(ST.aspWant||'未填')+'\n为什么想学：'+(ST.msg||'未填')+'\n行前小目标：'+(ST.aspGoal||'未填')+
   '\n现场三个细节：'+FIELDS.map(function(F,i){var o=ST.spots[i];return spotDone(i)?(F.short+'：'+(o.digit||'')+'；'+(o.action||'')+'；'+(o.quote||'')):'';}).filter(Boolean).join('　')+
-  '\n最打动我的：'+(ST.reflect||'未填');
+  '\n我最想说的话：'+(ST.aspCard||'未填')+'\n回校后要做的一件事：'+(ST.aspPlan||'未填')+'\n最打动我的：'+(ST.reflect||'未填');
 }
 
 function renderResult(){
@@ -1352,7 +1344,6 @@ function renderResult(){
  if($('inReflect'))$('inReflect').value=ST.reflect||'';
  if($('inAspCard'))$('inAspCard').value=ST.aspCard||'';
  if($('inAspPlan'))$('inAspPlan').value=ST.aspPlan||'';
- if($('inHuangmei'))$('inHuangmei').value=ST.huangmei||'';
  renderWorkGrid();renderAspCompare();
  if($('aspPromptBox'))$('aspPromptBox').innerHTML='<span class="ph">提示词已代入你的行前立志与现场记录，点上方按钮复制</span>'+esc(aspPrompt());
  $('promptBox').innerHTML='<span class="ph">提示词已代入你的内容，点上方复制</span>'+esc(resultPrompt());
@@ -1391,8 +1382,8 @@ function renderReview(){
 /* ============ 事件绑定（行前与成果静态输入） ============ */
 ['inMsg','inAiText','inAspWant','inAspGoal'].forEach(function(id){$(id).addEventListener('input',function(){
  var k={inMsg:'msg',inAiText:'aiText',inAspWant:'aspWant',inAspGoal:'aspGoal'}[id];ST[k]=this.value;save();});});
-['inSeg1','inSeg2','inSeg3','inLink','inReflect','inAspCard','inAspPlan','inHuangmei'].forEach(function(id){$(id).addEventListener('input',function(){
- var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link',inReflect:'reflect',inAspCard:'aspCard',inAspPlan:'aspPlan',inHuangmei:'huangmei'}[id];ST[k]=this.value;save();});});
+['inSeg1','inSeg2','inSeg3','inLink','inReflect','inAspCard','inAspPlan'].forEach(function(id){$(id).addEventListener('input',function(){
+ var k={inSeg1:'seg1',inSeg2:'seg2',inSeg3:'seg3',inLink:'link',inReflect:'reflect',inAspCard:'aspCard',inAspPlan:'aspPlan'}[id];ST[k]=this.value;save();});});
 ['inTibCraft','inTibWord','inOral'].forEach(function(id){$(id).addEventListener('input',function(){
  var k={inTibCraft:'tibCraft',inTibWord:'tibWord',inOral:'oral'}[id];ST[k]=this.value;save();});});
 $('mutuRow').addEventListener('click',function(){ST.mutu=!ST.mutu;save();$('mutuRow').classList.toggle('on',!!ST.mutu);});
@@ -1407,7 +1398,7 @@ $('btnSaveMe').addEventListener('click',function(){
  toast('你好，'+ST.name+'（'+(ST.cls||'同学')+'）。档案已就位。');
 });
 $('btnCopyPrompt').addEventListener('click',function(){copyText(resultPrompt(),function(){toast('提示词已复制，去粘给 AI 吧');});});
-$('btnAspAI')&&$('btnAspAI').addEventListener('click',function(){copyText(aspPrompt(),function(){toast('立志卡提示词已复制，粘给 AI 帮你把话说顺');});});
+$('btnAspAI')&&$('btnAspAI').addEventListener('click',function(){copyText(aspPrompt(),function(){toast('提示词已复制，粘给 AI 生成立志卡图片即可');});});
 $('btnMake').addEventListener('click',function(){
  if(!storyDone()){toast('先把三段式脚本写完再生成档案图');return;}
  ST.made=true;save();$('cardPrev').src=drawCard();$('cardResult').style.display='block';
@@ -1639,8 +1630,6 @@ function pdfMakeDoc(a){
  d.block('此刻我想说的话',ST.aspCard);
  d.block('回校后要做的一件事',ST.aspPlan);
  if(a.aspImg)d.img(a.aspImg,'我的立志卡（AI 生成）',900,true);else d.block('立志卡图','（未上传 AI 生成的立志卡图片）');
- d.start('立心 · 闭营仪式','学一句乡音，做一次汇报');
- d.block('黄梅乡音 · 我学会的一句',ST.huangmei);
  d.start('评价与收获','让这段旅程被看见');
  d.block('同伴一 · 触动 / 建议',(ST.peer.a1||'（未填）')+'　｜　'+(ST.peer.b1||''));
  d.block('同伴二 · 触动 / 建议',(ST.peer.a2||'（未填）')+'　｜　'+(ST.peer.b2||''));
