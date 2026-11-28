@@ -1,6 +1,6 @@
 /* 徽州百工校准档案 · 离线缓存 Service Worker */
 /* 更新手册内容后，把版本号 +1 即可让用户拿到新版 */
-var CACHE = 'huizhou-baigong-v33';
+var CACHE = 'huizhou-baigong-v34';
 var ASSETS = [
   './',
   './index.html',
@@ -32,6 +32,11 @@ self.addEventListener('activate', function (e) {
       }));
     }).then(function () { return self.clients.claim(); })
   );
+});
+
+/* 页面主动要求接管：立即激活新 SW 并清掉所有旧缓存 */
+self.addEventListener('message', function (e) {
+  if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('fetch', function (e) {
