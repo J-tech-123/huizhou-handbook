@@ -580,7 +580,7 @@ footer.foot{text-align:center;padding:16px 20px 12px;color:var(--ink2);font-size
         <div class="card dark"><div class="dh1">成果集 · 寻脉徽州 · 匠心报国</div>
           <div class="dh2">作品墙 · 三段短片 · 实践感悟 · 我的立志卡，把三天的成长排成一份成果。</div><div class="dhTag">回答子问题 3 · 怎样讲，远方的人才会听懂</div></div>
 
-        <div class="secTit"><span class="who who-p">个人必做</span> ① 手艺作品墙<em>五天手艺，我的作品</em></div>
+        <div class="secTit"><span class="who who-p">个人必做</span> ① 手艺作品墙<em>五门手艺，我的作品</em></div>
         <div class="card inkCard"><div class="workGrid" id="workGrid"></div>
           </div>
 
@@ -758,10 +758,14 @@ var ART={
 /* ============ 内容数据 ============ */
 var CRAFTS=['徽墨','徽州竹雕','徽州鱼灯','徽州烧饼','徽派园林'];
 var PROMPTS=[
- {n:'方案一 · 讲清它是什么',d:'第一次提问，先要一份完整初稿',t:'你是徽州非遗讲解员。我是内地西藏班高一学生，要把【徽墨/竹雕/鱼灯/烧饼/园林，填你认领的那门】讲给高原的亲友听。请用初中生能懂的话，写一份讲解初稿：① 它是什么、主要用什么材料；② 最关键的一道制作工序是怎样的；③ 它在徽州人的生活里做什么用。300 字以内。'},
- {n:'方案二 · 聚焦一道工序',d:'换角度提问，只要把工序讲透',t:'我是内地西藏班高一学生，要把【你认领的手艺】讲给高原的亲友听。请写一份讲解初稿，重点放在最关键的一道制作工序上：从准备材料到完成，一步步怎么做、用到什么工具、哪一步最见功夫。用初中生能懂的话，300 字以内。'},
- {n:'方案三 · 从生活里有啥用讲起',d:'再换角度，从用途和讲究切入',t:'我是内地西藏班高一学生，要把【你认领的手艺】讲给高原的亲友听。请写一份讲解初稿，从它出现在徽州人生活的哪些场合讲起：做什么用、有什么讲究或寓意、为什么能传到今天。用初中生能懂的话，300 字以内。'}
+ {n:'方案一 · 讲清它是什么',d:'第一次提问，先要一份完整初稿',t:'你是徽州非遗讲解员。我是海亮实验中学西藏班的高一学生，要把「{craft}」讲给高原的亲友听。请用高一学生能懂的话，写一份讲解初稿：① 它是什么、主要用什么材料；② 最关键的一道制作工序是怎样的；③ 它在徽州人的生活里做什么用。300 字以内。不要编造我不了解的内容。'},
+ {n:'方案二 · 聚焦一道工序',d:'换角度提问，只要把工序讲透',t:'我是海亮实验中学西藏班的高一学生，要把「{craft}」讲给高原的亲友听。请写一份讲解初稿，重点放在最关键的一道制作工序上：从准备材料到完成，一步步怎么做、用到什么工具、哪一步最见功夫。用高一学生能懂的话，300 字以内。不要编造我不了解的内容。'},
+ {n:'方案三 · 从生活里有啥用讲起',d:'再换角度，从用途和讲究切入',t:'我是海亮实验中学西藏班的高一学生，要把「{craft}」讲给高原的亲友听。请写一份讲解初稿，从它出现在徽州人生活的哪些场合讲起：做什么用、有什么讲究或寓意、为什么能传到今天。用高一学生能懂的话，300 字以内。不要编造我不了解的内容。'}
 ];
+function promptText(t){
+ var craft=String(ST.craft||'').trim();
+ return String(t||'').replace(/\{craft\}/g,craft?'（'+craft+'）':'「你认领的手艺」——请先在"认领手艺"里选好，再复制这条提示词');
+}
 var RULES=[
  '安全第一：听从指挥，不脱离队伍',
  '守时守纪：按时集合，遵守场馆与工坊规定',
@@ -1103,13 +1107,13 @@ function renderPrep(){
  if($('inAspGoal'))$('inAspGoal').value=ST.aspGoal||'';
  var qh='';PROMPTS.forEach(function(p,i){
   qh+='<div class="promptCard"><div class="pcH"><b>'+esc(p.n)+'</b><span>'+esc(p.d)+'</span></div>'+
-   '<div class="pcBody">'+esc(p.t)+'</div>'+
+   '<div class="pcBody">'+esc(promptText(p.t))+'</div>'+
    '<button class="btn btn-jade sm pcCopy" data-pc="'+i+'">复制这个提示词</button></div>';});
  $('questionCard').innerHTML=qh;
  document.querySelectorAll('#questionCard .pcCopy').forEach(function(btn){
   if(btn.dataset.bound)return;btn.dataset.bound='1';
   btn.onclick=function(){var i=+btn.dataset.pc;ST.questions[i]=true;save();
-   copyText(PROMPTS[i].t,function(){toast('提示词已复制，粘给 AI 即可');btn.textContent='已复制 ✓';
+   copyText(promptText(PROMPTS[i].t),function(){toast('提示词已复制，粘给 AI 即可');btn.textContent='已复制 ✓';
     setTimeout(function(){btn.textContent='复制这个提示词';},1800);});};});
  var th='';ST.todo.forEach(function(t,i){th+='<div class="fld"><input data-todo="'+i+'" maxlength="60" value="'+esc(t)+'" placeholder="第 '+(i+1)+' 条想核对的说法"></div>';});
  $('todoList').innerHTML=th;
@@ -1309,7 +1313,7 @@ function resultPrompt(){
  var craft=ST.craft||'这门徽州手艺';
  var c=ST.calib.filter(function(x){return x.fact.trim();}).map(function(x,i){return (i+1)+'. AI说：'+(x.ai||'（空）')+'；现场事实：'+x.fact+'；差在：'+(x.why||x.err);}).join('\n');
  var h=ST.hanRows.filter(function(r){return r[0].trim()||r[1].trim();}).map(function(r,i){return HAN_LABELS[i]+'：徽州'+(r[0]||'—')+' / 藏族'+(r[1]||'—');}).join('\n');
- return '你是青少年实践教育导师。请把我下面的三段式脚本，润色成一支 60—90 秒讲解短片的口播稿，要求：① 三段结构保留——先亮出 AI 原话与可疑之处，再用现场证据反证，最后用高原孩子听得懂的话重讲；② 用初中生能懂的话，不写空话；③ 不要编造我没有提供的史实或数据，缺失处标注「需补充」；④ 不使用"先进/落后"一类比较；⑤ 结尾给一句给高原亲友的话。\n\n我认领的手艺：'+craft+'\n藏族对应手艺：'+(ST.tibCraft||'（未填）')+'，藏语关键词：'+(ST.tibWord||'（未填）')+'\n\n校准对照：\n'+(c||'（未填）')+'\n\n汉藏对照卡：\n'+(h||'（未填）')+'\n\n我的三句脚本：\n① '+(ST.seg1||'（未填）')+'\n② '+(ST.seg2||'（未填）')+'\n③ '+(ST.seg3||'（未填）')+'\n\n我选择这门手艺的原因：'+(ST.msg||'（未填）');
+ return '你是青少年实践教育导师。请把我下面的三段式脚本，润色成一支 60—90 秒讲解短片的口播稿，要求：① 三段结构保留——先亮出 AI 原话与可疑之处，再用现场证据反证，最后用高原孩子听得懂的话重讲；② 用高一学生能懂的话，不写空话；③ 不要编造我没有提供的史实或数据，缺失处标注「需补充」；④ 不使用"先进/落后"一类比较；⑤ 结尾给一句给高原亲友的话。\n\n我认领的手艺：'+craft+'\n藏族对应手艺：'+(ST.tibCraft||'（未填）')+'，藏语关键词：'+(ST.tibWord||'（未填）')+'\n\n校准对照：\n'+(c||'（未填）')+'\n\n汉藏对照卡：\n'+(h||'（未填）')+'\n\n我的三句脚本：\n① '+(ST.seg1||'（未填）')+'\n② '+(ST.seg2||'（未填）')+'\n③ '+(ST.seg3||'（未填）')+'\n\n我选择这门手艺的原因：'+(ST.msg||'（未填）');
 }
 /* 五手艺作品墙 */
 function renderWorkGrid(){
@@ -1332,7 +1336,7 @@ function renderAspCompare(){
 }
 /* AI 润色立志卡提示词 */
 function aspPrompt(){
- return '请根据我下面的行前立志与三天实践记录，为我（高一学生）生成一张竖版"立志卡"图片，只需要图片，不要写口播稿。图片要求：① 标题"寻脉徽州 匠心报国"；② 用一句话写出我的志向（从下面的内容里提炼，不要空话套话）；③ 落款"海亮实验中学 西藏班 · 我的名字"；④ 配色庄重、图文清晰，适合打印和分享。内容只能来自下面我提供的信息，不要编造。\n\n认领手艺：'+(ST.craft||'未填')+
+ return '请根据我下面的行前立志与三天实践记录，为我（高一学生）生成一张竖版"立志卡"图片，只需要图片，不要写口播稿。图片要求：① 标题"寻脉徽州 匠心报国"；② 用一句话写出我的志向（从下面的内容里提炼，不要空话套话）；③ 落款"海亮实验中学西藏班 · '+(ST.name||'我')+'"；④ 配色庄重、图文清晰，适合打印和分享。内容只能来自下面我提供的信息，不要编造。\n\n认领手艺：'+(ST.craft||'未填')+
   '\n行前想学的本领：'+(ST.aspWant||'未填')+'\n为什么想学：'+(ST.msg||'未填')+'\n行前小目标：'+(ST.aspGoal||'未填')+
   '\n现场三个细节：'+FIELDS.map(function(F,i){var o=ST.spots[i];return spotDone(i)?(F.short+'：'+(o.digit||'')+'；'+(o.action||'')+'；'+(o.quote||'')):'';}).filter(Boolean).join('　')+
   '\n我最想说的话：'+(ST.aspCard||'未填')+'\n回校后要做的一件事：'+(ST.aspPlan||'未填')+'\n最打动我的：'+(ST.reflect||'未填');
